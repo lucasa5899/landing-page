@@ -265,7 +265,8 @@
           setTimeout(() => {
             terminal.innerText += '\n> EXECUTING...';
             setTimeout(() => {
-              window.open(link, '_blank');
+            //  window.open(link, '_blank'); ini biar new tab
+              window.location.href = link;
               terminal.style.display = 'none';
               intro.style.display = 'flex';
               intro.style.opacity = 1;
