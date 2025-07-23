@@ -274,5 +274,37 @@
       }, 35);
     }
   </script>
+  <script>
+  // Blok Ctrl+U dan F12
+  document.onkeydown = function (e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.key === 'F12') {
+      e.preventDefault();
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+      e.preventDefault();
+      return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+      e.preventDefault();
+      return false;
+    }
+  };
+
+  // Blok klik kanan
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Blok Inspect dengan DevTools resize
+  setInterval(() => {
+    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+      document.body.innerHTML = "<h1 style='color:#0f0;text-align:center;margin-top:20%;font-family:monospace;'>HACK DETECTED 🔒</h1>";
+    }
+  }, 1000);
+</script>
+
 </body>
 </html>
