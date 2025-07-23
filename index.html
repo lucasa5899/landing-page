@@ -10,11 +10,12 @@
 
     html, body {
       width: 100%;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
       font-family: 'VT323', monospace;
       background: #000;
-      color: #00ff55;
+      color: #00f200;
     }
 
     .hex-bg {
@@ -23,7 +24,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      color: #00ff55;
+      color: #00f200;
       opacity: 0.15;
       white-space: pre;
       font-size: 16px;
@@ -46,17 +47,17 @@
       font-size: 2rem;
       padding: 1rem 2rem;
       background: transparent;
-      color: #00ff55;
-      border: 2px solid #00ff55;
+      color: #00f200;
+      border: 2px solid #00f200;
       cursor: pointer;
-      text-shadow: 0 0 6px #00ff55;
+      text-shadow: 0 0 6px #00f200;
       font-family: 'VT323', monospace;
     }
 
     .intro-screen button:hover {
-      background: #00ff55;
+      background: #00f200;
       color: #000;
-      box-shadow: 0 0 12px #00ff55;
+      box-shadow: 0 0 12px #00f200;
     }
 
     .main-content {
@@ -67,7 +68,7 @@
       align-items: center;
       position: relative;
       z-index: 2;
-      padding: 3rem 1rem;
+      padding: 3rem 1rem 4rem;
       transition: opacity 1s ease;
     }
 
@@ -77,10 +78,19 @@
       display: flex;
     }
 
+    .glitch-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
     .glitch-text {
-      font-size: 2.5rem;
+      font-size: clamp(1.4rem, 6vw, 2rem);
       animation: glitch 2s infinite;
-      text-shadow: 0 0 5px #00ff55;
+      text-shadow: 0 0 5px #00f200;
+      text-align: center;
     }
 
     .section-title {
@@ -96,8 +106,8 @@
       width: 90%;
       max-width: 500px;
       background: rgba(0,0,0,0.75);
-      border: 2px solid #00ff55;
-      color: #00ff55;
+      border: 2px solid #00f200;
+      color: #00f200;
       text-decoration: none;
       text-align: left;
       display: block;
@@ -107,14 +117,15 @@
 
     .link-box:hover {
       background: rgba(0,255,85,0.15);
-      box-shadow: 0 0 20px #00ff55;
+      box-shadow: 0 0 20px #00f200;
       transform: scale(1.02);
     }
 
     .footer {
-      margin-top: 4rem;
+      margin-top: 3rem;
       font-size: 1rem;
-      text-shadow: 0 0 5px #00ff55;
+      text-shadow: 0 0 5px #00f200;
+      text-align: center;
     }
 
     .terminal-box {
@@ -123,13 +134,13 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: #000;
-      border: 2px solid #00ff55;
-      color: #00ff55;
+      border: 2px solid #00f200;
+      color: #00f200;
       padding: 1rem 2rem;
       font-size: 1.2rem;
       z-index: 999;
       white-space: pre-wrap;
-      box-shadow: 0 0 12px #00ff55;
+      box-shadow: 0 0 12px #00f200;
       display: none;
     }
 
@@ -143,10 +154,9 @@
     }
 
     .glitch-anim {
-  animation: glitch 1s infinite;
-  text-shadow: 0 0 5px #00ff55;
-}
-
+      animation: glitch 1s infinite;
+      text-shadow: 0 0 5px #00f200;
+    }
 
     @keyframes glitch {
       0%, 100% { transform: none; }
@@ -164,16 +174,6 @@
       60% { opacity: 1; }
       100% { opacity: 0; }
     }
-
-    @keyframes glitch {
-  0%, 100% { transform: none; }
-  10% { transform: translate(-1px, 1px); }
-  20% { transform: translate(-2px, -1px); }
-  30% { transform: translate(1px, -2px); }
-  40% { transform: translate(1px, 2px); }
-  70% { transform: translate(-1px, -1px); }
-}
-
   </style>
 </head>
 <body>
@@ -186,7 +186,9 @@
   <div class="hex-bg" id="hexBg"></div>
 
   <div class="main-content" id="main">
-    <div class="glitch-text">[ ACCESS LUCAS SYSTEM ]</div>
+    <div class="glitch-container">
+      <div class="glitch-text">[ ACCESS LUCAS SYSTEM ]</div>
+    </div>
 
     <div class="section-title">-- OFFICIAL CHANNELS --</div>
     <div class="link-box glitch-anim" onclick="simulateTyping('ACCESS TIKTOK', 'https://www.tiktok.com/@ic.lucass')">> ACCESS LUCAS A TIKTOK</div>
@@ -195,7 +197,6 @@
 
     <div class="section-title">-- THE BEST ROLEPLAY SERVER --</div>
     <div class="link-box glitch-anim" onclick="simulateTyping('DISTRICT 21 RP', 'https://discord.gg/wF9bupfB6u')">> EXOVERSE ROLEPLAY</div>
-<!--    <div class="link-box" onclick="simulateTyping('NEI-KAI CORE', '#')">> NEI-KAI CORE</div> -->
 
     <div class="footer">eLANK SYSTEM OS v4.2 • Powered by Lucas A</div>
   </div>
@@ -219,11 +220,11 @@
 
     function animateHexBg() {
       const rows = Math.ceil(window.innerHeight / 16);
-      const cols = Math.ceil(window.innerWidth / 1.2);
+      const cols = Math.ceil(window.innerWidth / 5.5);
       hexBg.textContent = generateHex(rows, cols);
     }
 
-    setInterval(animateHexBg, 100); // Percepat jadi 100ms
+    setInterval(animateHexBg, 100);
     animateHexBg();
 
     function accessSystem() {
