@@ -13,7 +13,6 @@
       width: 100%;
       min-height: 100%;
       overflow-x: hidden;
-      overflow-y: auto;
       font-family: 'VT323', monospace;
       background: #000;
       color: #00f200;
@@ -95,15 +94,9 @@
     }
 
     .section-title {
-      margin-top: 2rem;
+      margin-top: 0.5rem;
       font-size: 1.2rem;
       animation: glitch 3s infinite;
-    }
-
-    .section-title2 {
-      margin-top: rem;
-      font-size: 1rem;
-      animation: glitch 2.5s infinite;
     }
 
     .link-box {
@@ -112,20 +105,78 @@
       margin: 1rem 0;
       width: 90%;
       max-width: 500px;
+      height: 60px;
       background: rgba(0,0,0,0.75);
       border: 2px solid #00f200;
       color: #00f200;
       text-decoration: none;
-      text-align: left;
-      display: block;
+      display: flex;
+      justify-content: left; /* Ubah dari space-between ke center */
+      align-items: center;
       cursor: pointer;
       transition: 0.3s;
+      position: relative; /* Tambahkan ini */
     }
 
     .link-box:hover {
       background: rgba(0,255,85,0.15);
       box-shadow: 0 0 20px #00f200;
       transform: scale(1.02);
+    }
+
+    .link-box img.link-icon {
+      height: 100%; /* Pastikan gambar mengisi tinggi penuh */
+      width: 100%; /* Pastikan gambar mengisi lebar penuh */
+      object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+      position: absolute; /* Tambahkan ini */
+      top: 0; /* Tambahkan ini */
+      left: 0; /* Tambahkan ini */
+      z-index: 1; /* Pastikan gambar berada di belakang teks */
+    }
+
+    .link-box span {
+      position: relative; /* Tambahkan ini untuk teks */
+      z-index: 2; /* Pastikan teks berada di atas gambar */
+    }
+
+    .donation-section {
+      margin-top: 2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .donation-flex {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 90%;
+      max-width: 500px;
+      flex-wrap: nowrap;
+    }
+
+    .donation-wrapper {
+      flex: 1;
+    }
+
+    .donation-box {
+      width: 100%;
+      text-align: center;
+      background: rgba(0,0,0,0.75);
+      border: 2px solid #00f200;
+      color: #00f200;
+      font-size: 1rem;
+      padding: 1rem;
+      animation: glitch 2s infinite;
+      text-shadow: 0 0 5px #00f200;
+      transition: 0.3s;
+    }
+
+    .donation-box:hover {
+      background: rgba(0,255,85,0.1);
+      box-shadow: 0 0 10px #00f200;
     }
 
     .footer {
@@ -184,7 +235,6 @@
   </style>
 </head>
 <body>
-
   <div class="intro-screen" id="intro">
     <button onclick="accessSystem()">ACCESS LUCAS SYSTEM</button>
   </div>
@@ -196,16 +246,41 @@
     <div class="glitch-container">
       <div class="glitch-text">[ ACCESS LUCAS SYSTEM ]</div>
     </div>
-<!--    <div class="section-title2">[ Note: Open in browser if you're an iPhone user. ]</div> -->
-    <div class="section-title">-- OFFICIAL CHANNELS --</div>    
-    <div class="link-box glitch-anim" onclick="simulateTyping('ACCESS TIKTOK', 'https://www.tiktok.com/@ic.lucass')">> ACCESS LUCAS A TIKTOK</div>
-    <div class="link-box glitch-anim" onclick="simulateTyping('OPEN YOUTUBE', 'https://www.youtube.com/@lucasa5899')">> OPEN LUCAS ANDREW YOUTUBE</div>
-    <div class="link-box glitch-anim" onclick="simulateTyping('CONNECT DISCORD', 'https://discord.gg/5bTWcba8Pe')">> CONNECT eLANK Store DISCORD</div>
 
-    <div class="section-title">-- THE BEST ROLEPLAY SERVER --</div>
-    <div class="link-box glitch-anim" onclick="simulateTyping('DISTRICT 21 RP', 'https://discord.gg/wF9bupfB6u')">> EXOVERSE ROLEPLAY DISCORD</div>
+    <div class="donation-section">
+      <div class="section-title">-- DONATION AREA --</div>
+      <div class="donation-flex">
+        <div class="donation-wrapper">
+          <div class="donation-box" onclick="simulateTyping('BAGIBAGI 🚬', 'https://www.tiktok.com/@ic.lucass')">BAGIBAGI 🚬</div>
+        </div>
+        <div class="donation-wrapper">
+          <div class="donation-box" onclick="simulateTyping('SAWERIA 🥃', 'https://saweria.co/lucas5899')">SAWERIA 🥃</div>
+        </div>
+      </div>
+    </div>
 
-    <div class="footer">eLANK SYSTEM OS v4.2 • Powered by Lucas A</div>
+    <br>
+    <div class="section-title">-- THE BEST FIVEM [ GTA V ] ROLEPLAY SERVER --</div>
+    <div class="link-box glitch-anim" onclick="simulateTyping('EXOVERSE ROLEPLAY DISCORD', 'https://discord.gg/wF9bupfB6u')">
+      <img src="panjang-exoverse.jpg" class="link-icon" alt="icon">
+      <span>> EXOVERSE ROLEPLAY DISCORD</span>
+    </div>
+
+    <div class="section-title">-- OFFICIAL CHANNELS --</div>
+    <div class="link-box glitch-anim" onclick="simulateTyping('ACCESS LUCAS A TIKTOK', 'https://www.tiktok.com/@ic.lucass')">
+      <img src="panjang-tiktok.jpg" class="link-icon" alt="icon">
+      <span>> ACCESS LUCAS A TIKTOK</span>
+    </div>
+    <div class="link-box glitch-anim" onclick="simulateTyping('OPEN LUCAS ANDREW YOUTUBE', 'https://www.youtube.com/@lucasa5899')">
+      <img src="panjang-youtube.jpg" class="link-icon" alt="icon">
+      <span>> OPEN LUCAS ANDREW YOUTUBE</span>
+    </div>
+    <div class="link-box glitch-anim" onclick="simulateTyping('CONNECT eLANK Store DISCORD', 'https://discord.gg/5bTWcba8Pe')">
+      <img src="panjang-eLANK-Store.jpg" class="link-icon" alt="icon">
+      <span>> CONNECT eLANK Store DISCORD</span>
+    </div>
+
+    <div class="footer">eLANK Store OS v1.0 • Powered by Lucas A</div>
   </div>
 
   <div class="terminal-box" id="terminalBox"></div>
@@ -271,7 +346,6 @@
           setTimeout(() => {
             terminal.innerText += '\n> EXECUTING...';
             setTimeout(() => {
-            //  window.open(link, '_blank'); ini biar new tab
               window.location.href = link;
               terminal.style.display = 'none';
               intro.style.display = 'flex';
@@ -281,38 +355,19 @@
         }
       }, 35);
     }
+
+    document.onkeydown = function (e) {
+      if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's')) return false;
+      if (e.key === 'F12') return false;
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c')) return false;
+    };
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    setInterval(() => {
+      if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+        document.body.innerHTML = "<h1 style='color:#0f0;text-align:center;margin-top:20%;font-family:monospace;'>HACK DETECTED 🔒</h1>";
+      }
+    }, 1000);
   </script>
-  <script>
-  // Blok Ctrl+U dan F12
-  document.onkeydown = function (e) {
-    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
-      e.preventDefault();
-      return false;
-    }
-    if (e.key === 'F12') {
-      e.preventDefault();
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-      e.preventDefault();
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
-      e.preventDefault();
-      return false;
-    }
-  };
-
-  // Blok klik kanan
-  document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Blok Inspect dengan DevTools resize
-  setInterval(() => {
-    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
-      document.body.innerHTML = "<h1 style='color:#0f0;text-align:center;margin-top:20%;font-family:monospace;'>HACK DETECTED 🔒</h1>";
-    }
-  }, 1000);
-</script>
-
 </body>
 </html>
